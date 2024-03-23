@@ -31,6 +31,8 @@ create database uc11;
 
 use uc11;
 
+select * from produtos;
+
 CREATE TABLE `produtos` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nome` text DEFAULT NULL,

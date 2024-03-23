@@ -1,5 +1,10 @@
 
+import javax.swing.JOptionPane;
+
+
 public class cadastroVIEW extends javax.swing.JFrame {
+
+    private ProdutosDTO ProdutosDTO;
 
     public cadastroVIEW() {
         initComponents();
@@ -124,16 +129,39 @@ public class cadastroVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroNomeActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        
         ProdutosDTO produto = new ProdutosDTO();
         String nome = cadastroNome.getText();
         String valor = cadastroValor.getText();
         String status = "A Venda";
         produto.setNome(nome);
-        produto.setValor(Integer.parseInt(valor));
+        produto.setValor(Integer.valueOf(valor));
         produto.setStatus(status);
 
         ProdutosDAO produtodao = new ProdutosDAO();
-        produtodao.cadastrarProduto(produto);
+        try {
+            produtodao.cadastrarProduto(produto);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        
+        /*       
+        ProdutosDTO produto = new ProdutosDTO();
+        try { 
+            String nome = cadastroNome.getText();
+            String valor = cadastroValor.getText();
+            String status = "A Venda";
+        
+        ProdutosDAO produtodao = new ProdutosDAO();
+        
+                if (produtodao.cadastrarProduto(produto)) {
+                Feedback.setText("O produto foi cadastrado:");
+            }
+        } catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Produto não pode ser cadastrado! Tente novamente.");
+            System.out.println(e);
+        }  
+        */
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -186,4 +214,14 @@ public class cadastroVIEW extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
+
+    private static class Feedback {
+
+        private static void setText(String o_produto_foi_cadastrado) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public Feedback() {
+        }
+    }
 }
