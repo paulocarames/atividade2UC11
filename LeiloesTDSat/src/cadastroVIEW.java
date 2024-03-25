@@ -141,28 +141,12 @@ public class cadastroVIEW extends javax.swing.JFrame {
         ProdutosDAO produtodao = new ProdutosDAO();
         try {
             produtodao.cadastrarProduto(produto);
+            // mostrar mensagem de sucesso
+            JOptionPane.showMessageDialog(null, "Produto cadastrado!");
         } catch(Exception e) {
-            e.printStackTrace();
-        }
-        
-        /*       
-        ProdutosDTO produto = new ProdutosDTO();
-        try { 
-            String nome = cadastroNome.getText();
-            String valor = cadastroValor.getText();
-            String status = "A Venda";
-        
-        ProdutosDAO produtodao = new ProdutosDAO();
-        
-                if (produtodao.cadastrarProduto(produto)) {
-                Feedback.setText("O produto foi cadastrado:");
-            }
-        } catch(NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Produto não pode ser cadastrado! Tente novamente.");
-            System.out.println(e);
-        }  
-        */
-
+            System.out.println(e);           
+        }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
@@ -217,11 +201,12 @@ public class cadastroVIEW extends javax.swing.JFrame {
 
     private static class Feedback {
 
-        private static void setText(String o_produto_foi_cadastrado) {
+        private static void setText(String o_filme_foi_cadastrado) {
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
 
         public Feedback() {
         }
     }
-}
+
+   }
